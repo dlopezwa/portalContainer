@@ -1,22 +1,27 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav [mode]="mode.value">
-      <p><button mat-button (click)="sidenav.toggle()">
-        <span class="material-icons">
-            menu_open
-            </span>
-      </button></p>
-      <mat-divider></mat-divider>
+  <mat-sidenav #sidenav [mode]="mode.value">
+    <p>
+      <button mat-button (click)="sidenav.toggle()">
+        <span class="material-icons"> menu_open </span>
+      </button>
+    </p>
+    <mat-divider></mat-divider>
 
-      <app-tree-aplications></app-tree-aplications>
-    
-      <mat-divider></mat-divider>
+    <app-tree-aplications (url)="changeUrl($event)"></app-tree-aplications>
 
+    <mat-divider></mat-divider>
+  </mat-sidenav>
 
-    </mat-sidenav>
-
-    <p><button mat-button (click)="sidenav.toggle()">
-        <span class="material-icons">
-            menu
-            </span>
-      </button></p>
-  </mat-sidenav-container>
+  <div class="flexcontainer">
+    <div class="fix_sidevar">
+      <p>
+        <button mat-button (click)="sidenav.toggle()">
+          <span class="material-icons"> menu </span>
+        </button>
+      </p>
+    </div>
+    <div class="fix_container">
+      <app-container></app-container>
+    </div>
+  </div>
+</mat-sidenav-container>

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import { EventsEmittersService } from 'src/app/services/events-emitters.service';
+
 
 /**
  * Food data with nested structure.
@@ -44,9 +46,30 @@ interface ExampleFlatNode {
 })
 export class TreeAplicationsComponent implements OnInit {
 
+  constructor(private eventsEmittersService: EventsEmittersService) {
+    this.dataSource.data = TREE_DATA;
+  }
   ngOnInit(): void {
   }
 
+  changeUrl(node: FoodNode) {
+    console.log('hago el emmit: ', node);
+    let newUrl: string;
+    if(node.name == 'Function 1') {
+      newUrl = 'http://www.adif.es/es_ES/index.shtml';
+    }
+    else if(node.name == 'Function 2') {
+      newUrl = 'https://angular.io/guide/http';
+    }
+    else if(node.name == 'Function 3') {
+      newUrl = 'https://www.typescriptlang.org/';
+    }
+    else {
+      newUrl = 'https://www.adif.es/es_ES/index.shtml';
+    }
+
+    this.eventsEmittersService.url.emit(newUrl);
+  }
   
   private _transformer = (node: FoodNode, level: number) => {
     return {
@@ -64,9 +87,7 @@ export class TreeAplicationsComponent implements OnInit {
 
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
-  constructor() {
-    this.dataSource.data = TREE_DATA;
-  }
+
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
 }

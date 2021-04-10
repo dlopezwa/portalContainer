@@ -26,3 +26,21 @@
     background-color: rgb(0, 99, 56);
   color: white;
 }
+
+.fix_sidevar {
+  width: 30px;
+}
+
+.flexcontainer {
+  display: flex;
+}
+
+.fix_sidevar {
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.fix_container {
+  flex-direction: row;
+  flex-grow: 20;
+}

@@ -14,7 +14,12 @@
   color: white;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
 
 .mat-tree-node {
     padding-left: 10px;
+    cursor: pointer;
 }

@@ -7,10 +7,22 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./sidenav.component.scss']
 })
 export class SidenavComponent implements OnInit {
-
-  constructor() { }
+  
+  url: string;
+  
+  constructor() { 
+    this.url='';
+  }
 
   ngOnInit(): void {
+
   }
   mode = new FormControl('over');
+
+  changeUrl(newUrl: any) {
+    console.log();
+    this.url = newUrl;
+    console.log('Nueva URL: ', newUrl);
+  }
+
 }
