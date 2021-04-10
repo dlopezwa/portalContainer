@@ -68,6 +68,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "port": 4201,
             "browserTarget": "Portalv1:build"
           },
           "configurations": {
@@ -127,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "Portalv1"
+  "defaultProject": "Portalv1",
+  "cli": {
+    "analytics": "f9a51bbf-a53b-458b-9c25-858ec5b18c3e"
+  }
 }

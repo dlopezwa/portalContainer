@@ -1,0 +1,22 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="mode.value">
+      <p><button mat-button (click)="sidenav.toggle()">
+        <span class="material-icons">
+            menu_open
+            </span>
+      </button></p>
+      <mat-divider></mat-divider>
+
+      <app-tree-aplications></app-tree-aplications>
+    
+      <mat-divider></mat-divider>
+
+
+    </mat-sidenav>
+
+    <p><button mat-button (click)="sidenav.toggle()">
+        <span class="material-icons">
+            menu
+            </span>
+      </button></p>
+  </mat-sidenav-container>
